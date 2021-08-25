@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="fontawesome/css/all.css">
+
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css" />
+<link rel="stylesheet" type="text/css" href="css/util.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar w/ text</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    Navbar text with an inline element
+                </span>
+            </div>
+        </nav> -->
+    <nav class="navbar navbar-expand-lg px-1 navbar-dark bg-dark" id="navBar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+            <span class="navbar-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="myNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a href="about.html" class="nav-link">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#social" class="nav-link">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Actions -->
+    <div class="navBackground">
+        <div class="d-flex justify-content-center pt-4 font-weight-bold text-white">
+            <div class="ml-5 d-flex justify-content-end font-weight-light"><button type="button" class="btn btn-danger"
+                    data-toggle="modal" data-target="#exampleModal"><i class="fas fa-car mr-1"></i>ADD
+                    CAR</button>
+            </div>
+
+            <!-- Modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="contact100-form validate-form" name="" onsubmit="event.preventDefault()"
+                                enctype="multipart/form-data">
+                                <span class="contact100-form-title">
+                                    Car Details
+                                </span>
+
+                                <div class="mb-4">
+                                    <a href="/" class="btn btn-primary">Back to home page</a>
+                                </div>
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR TITLE *</span>
+                                    <input class="input100" id="car_title" type="text" name="name"
+                                        placeholder="Enter car Title" autocomplete="off" />
+                                </div>
+
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR LOCATION *</span>
+                                    <input class="input100" id="car_location" type="text" name="name"
+                                        placeholder="Enter car Title" autocomplete="off" />
+                                </div>
+
+                                <div class="wrap-input100 input100-select bg1">
+                                    <span class="label-input100">CAR BRAND *</span>
+                                    <div>
+                                        <select class="js-select2" name="service" id="car_brand"
+                                            onchange="onBrandChange()">
+                                            <option value="">Please select your brand</option>
+                                            <!-- <option>Mercedes</option>
+                                        <option>BMW</option>
+                                        <option>Audi</option>
+                                        <option>Volkswagen</option>
+                                        <option>Alfa Romeo</option>
+                                        <option>Subaru</option> -->
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+                                <div class="wrap-input100 input100-select bg1">
+                                    <span class="label-input100">CAR MODEL *</span>
+                                    <div>
+                                        <select class="js-select2" name="service" id="car_model">
+                                            <option value="">Please select your model</option>
+                                            <!-- <option>5 series</option>
+                                        <option>GLE Coupe</option>
+                                        <option>Eclass</option>
+                                        <option>Q8</option>
+                                        <option>SLS</option>
+                                        <option>Toureg</option>
+                                        <option>Giulia Quadrifolio</option>
+                                        <option>WRX Sti</option> -->
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR YEAR *</span>
+                                    <input class="input100" id="car_year" type="text" name="name" autocomplete="off"
+                                        placeholder="Enter car Manufacture dates" />
+                                </div>
+
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR Transmission *</span>
+                                    <input class="input100" id="car_transmission" type="text" name="name"
+                                        autocomplete="off" placeholder="Enter car Transmission" />
+                                </div>
+
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR PRICE *</span>
+                                    <input class="input100" id="car_price" type="text" name="name"
+                                        placeholder="Enter car Price" autocomplete="off" />
+                                </div>
+                                <div class="wrap-input100 validate-input bg1">
+                                    <span class="label-input100">CAR IMAGES *</span>
+                                    <input id="car_images" type="file">
+                                </div>
+
+
+                                <div class="container-contact100-form-btn">
+                                    <button class="contact100-form-btn" onclick="postCarDetails()">
+                                        <span>
+                                            Submit
+                                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of modal -->
+        </div>
+    </div>
+
+    <!-- Search Car -->
+    <div class="container mb-5">
+        <div class="d-flex justify-content-center pt-4" style="background-color: #424242;">
+            <div class="input-group mb-3 col-md-4">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Brand</label>
+                </div>
+                <select class="custom-select" id="search_carbrand" onchange="onBrandSearchChange()">
+                    <!-- <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option> -->
+                </select>
+            </div>
+            <div class="input-group mb-3 col-md-4 mr-2">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Model</label>
+                </div>
+                <select class="custom-select" id="search_model">
+                    <!-- <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option> -->
+                </select>
+            </div>
+            <div class=""><button class="btn btn-danger" onclick="filterBrand()"><i
+                        class="fas fa-search mr-1"></i>SEARCH</button></div>
+            <div class="ml-2"> <a href="/"><i class="fas fa-sync"></i></a></div>
+
+        </div>
+
+        <!-- Display available cars -->
+        <div class="mt-5">
+            <h6 class="font-weight-bold mb-3">AVAILABLE CARS</h6>
+            <div class="d-flex justify-content-between flex-wrap" id="all_cars">
+                <!-- <div class="card  pb-2 p-1">
+                        <img src="/images/amgt.jpg" alt="" height="200px" width="200px">
+                        <div class="d-flex flex-row justify-content-between p-2 cardBorder">
+                            <div class="font-weight-bold"><i class="fab fa-bandcamp"></i> BMW</div>
+                            <div class="p-1 price"><i class="fas fa-dollar-sign"></i> 20,000
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between transmission">
+                            <div class="">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Nanyuki
+                            </div>
+                            <div class="">
+                                <i class="fas fa-cogs"></i>
+                                Automatic
+                            </div>
+                        </div>
+                    </div> -->
+                <!-- <div class="card">
+                        <img src="/images/amgt.jpg" alt="" height="200px" width="200px">
+                    </div>
+                    <div class="card">
+                        <img src="/images/amgt.jpg" alt="" height="200px" width="200px">
+                    </div>
+                    <div class="card">
+                        <img src="/images/amgt.jpg" alt="" height="200px" width="200px">
+                    </div>
+                    <div class="card">
+                        <img src="/images/amgt.jpg" alt="" height="200px" width="200px">
+                    </div> -->
+
+            </div>
+        </div>
+    </div>
+    <footer id="social">
+        <div class="centerdiv">
+            <a href="" target="_blank"> <i class="fa fa-2x fa-facebook"></i></a>
+            <a href="" target="_blank"> <i class="fa fa-2x fa-instagram"></i></a>
+            <a href="" target="_blank"> <i class="fa fa-2x fa-twitter"></i></a>
+            <a href="" target="_blank"> <i class="fa fa-2x fa-youtube"></i></a>
+            <a href="" target="_blank"> <i class="fa fa-2x fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next(".dropDownSelect2"),
+            });
+
+            $(".js-select2").each(function () {
+                $(this).on("select2:close", function (e) {
+                    if ($(this).val() == "Please chooses") {
+                        $(".js-show-service").slideUp();
+                    } else {
+                        $(".js-show-service").slideUp();
+                        $(".js-show-service").slideDown();
+                    }
+                });
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/noui/nouislider.min.js"></script>
+    <script>
+        var filterBar = document.getElementById("filter-bar");
+
+        noUiSlider.create(filterBar, {
+            start: [1500, 3900],
+            connect: true,
+            range: {
+                min: 1500,
+                max: 7500,
+            },
+        });
+
+        var skipValues = [
+            document.getElementById("value-lower"),
+            document.getElementById("value-upper"),
+        ];
+
+        filterBar.noUiSlider.on("update", function (values, handle) {
+            skipValues[handle].innerHTML = Math.round(values[handle]);
+            $('.contact100-form-range-value input[name="from-value"]').val(
+                $("#value-lower").html()
+            );
+            $('.contact100-form-range-value input[name="to-value"]').val(
+                $("#value-upper").html()
+            );
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        let allBrands;
+        let allModels;
+        let selectedImage;
+        let selectedCarBrand;
+
+        let allCars;
+        const getAllCars = () => {
+            axios
+                .get(`http://localhost:5005/car`)
+                .then((res) => {
+                    console.log(res.data);
+                    allCars = res.data.items;
+                    showCars(allCars);
+                })
+                .catch((error) => {
+                    console.log(error.response.data);
+                });
+        };
+
+        const showCars = (allCars) => {
+            const cars = allCars.map(
+                (car) =>
+                    '<div class="card  pb-2 p-1 mb-5">' +
+                    '<img src="/images/amgt.jpg" alt="" height="200px" width="200px">' +
+                    ' <div class="d-flex flex-row justify-content-between p-2 cardBorder">' +
+                    '<div class="font-weight-bold"><i class="fab fa-bandcamp"></i> ' + car.car_title + '</div>' +
+                    '<div class="p-1 price"><i class="fas fa-dollar-sign"></i> ' + car.car_price +
+                    '  </div>' +
+                    '  </div >' +
+                    '<div class="d-flex flex-row justify-content-between transmission">' +
+                    ' <div class="">' +
+                    ' <i class="fas fa-map-marker-alt"></i> ' +
+                    car.car_location +
+                    ' </div>' +
+                    '<div class="">' +
+                    ' <i class="fas fa-cogs"></i> ' +
+                    car.car_transmission +
+                    ' </div>' +
+                    '</div>' +
+                    ' </div >'
+            );
+            document.getElementById("all_cars").innerHTML = cars.join();
+        };
+
+
+
+
+        var openFile = function (event) {
+            var input = event.target;
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                var dataURL = reader.result;
+                // var output = document.getElementById('output');
+                // output.src = data.;URL;
+
+                selectedImage = dataURL;
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        };
+
+        const postCarDetails = () => {
+            let carTitle = document.getElementById("car_title").value;
+            let carLocation = document.getElementById("car_location").value;
+            let carBrand = document.getElementById("car_brand").value;
+            let carModel = document.getElementById("car_model").value;
+            let carYear = document.getElementById("car_year").value;
+            let carTransmission = document.getElementById("car_transmission").value;
+            let carPrice = document.getElementById("car_price").value;
+            let carImage = document.getElementById("car_images");
+
+            let formData = new FormData()
+
+            formData.append('car_title', carTitle);
+            formData.append('car_location', carLocation);
+            formData.append('car_model_id', carModel);
+            formData.append('car_year', carYear);
+            formData.append('car_transmission', carTransmission);
+            formData.append('car_price', carPrice);
+            formData.append('car_imgs', carImage.files[0]);
+
+            axios
+                .post(`http://localhost:5005/car`, formData)
+                .then((res) => {
+                    console.log(res.data);
+                    alert(res.data.message);
+                })
+                .catch((error) => {
+                    console.log(error.response.data);
+                    alert(error.response.data.error.car);
+                });
+        };
+
+        const getCarBrand = () => {
+            axios
+                .get(`http://localhost:5005/brand`)
+                .then((res) => {
+                    // console.log(res.data);
+                    allBrands = res.data;
+                    // console.log(allBrands);
+                    showBrands(allBrands);
+                    searchBrands(allBrands);
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        };
+
+        const showBrands = (allBrands) => {
+            console.log(allBrands);
+            const brands = allBrands.map(
+                (brand) =>
+                    "<option value=" + brand.id + ">" + brand.brand_name + "</option>"
+            );
+
+            document.getElementById("car_brand").innerHTML = '<option value="">Select Brand</option>' + brands;
+        };
+
+        const searchBrands = (allBrands) => {
+            console.log(allBrands);
+            const brands = allBrands.map(
+                (brand) =>
+                    "<option value=" + brand.id + ">" + brand.brand_name + "</option>"
+            );
+
+            document.getElementById("search_carbrand").innerHTML = '<option value="">Select Brand</option>' + brands;
+        };
+
+        const onBrandChange = () => {
+            // console.log(allModels);
+            // selectedCarBrand = document.getElementById("car_brand").value;
+            showModels(allModels);
+            searchModels(allModels);
+        }
+
+        const onBrandSearchChange = () => {
+            searchModels(allModels);
+        }
+
+        //model
+        const getCarModel = () => {
+            axios
+                .get(`http://localhost:5005/model`)
+                .then((res) => {
+                    // console.log(res.data);
+                    allModels = res.data;
+                    showModels(allModels);
+                    searchModels(allModels);
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        };
+
+        const showModels = (allModels) => {
+            selectedCarBrand = document.getElementById("car_brand").value;
+            let brand = parseInt(selectedCarBrand);
+            const models = allModels.filter(car => car.brand_id === brand).map(
+                (model) =>
+                    "<option value=" + model.id + ">" + model.model_name + "</option>"
+            );
+            document.getElementById("car_model").innerHTML = '<option value="">Select Model</option>' + models;
+        };
+
+        const searchModels = (allModels) => {
+            console.log(allModels);
+            const CarBrand = document.getElementById("search_carbrand").value;
+            let brand = parseInt(CarBrand);
+            console.log(brand);
+            const models = allModels.filter(car => car.brand_id === brand).map(
+                (model) =>
+                    "<option value=" + model.id + ">" + model.model_name + "</option>"
+            );
+            document.getElementById("search_model").innerHTML = '<option value="">Select Model</option>' + models;
+        };
+
+        const filterBrand = () => {
+            console.log('its getting here');
+            console.log(allCars);
+            const brand = document.getElementById("search_carbrand").value;
+            const model = document.getElementById("search_model").value;
+            const brandId = parseInt(brand);
+            const modelId = parseInt(model);
+            console.log(modelId);
+
+            if (brandId !== "") {
+                const filteredCars = allCars.filter(cars => cars.brand_id === brandId);
+                showCars(filteredCars);
+            } else {
+                const filteredCars = allCars.filter(cars => cars.brand_id === brandId && cars.car_model_id === modelId);
+                console.log(filteredCars);
+                showCars(filteredCars);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            getAllCars();
+            getCarModel();
+            getCarBrand();
+        });
+
+
+
+
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("/js", new Date());
+
+        gtag("config", "UA-23581568-13");
+    </script>
+</body>
+
+</html>

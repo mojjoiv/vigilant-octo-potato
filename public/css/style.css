@@ -1,0 +1,92 @@
+/*nav bar*/
+.navbar {
+  background-color: #004d40;
+  background-position: center;
+  background-repeat: inherit;
+}
+.navbar-icon {
+  font-size: 2rem; 
+  color: blue;
+}
+.card-img{
+  background-color: #00695c;
+  opacity: initial;
+}
+.nav-link {
+  color: black;
+  text-transform: capitalize;
+  opacity: inherit;
+  background-color: rgb(116, 108, 108);
+  background-size: 0.1rem;
+}
+
+.section-title--special{
+  background: grey;
+  opacity:0.8;
+  color: white;
+  padding: 0.5rem 2rem;
+  clip-path: polygon(10% 0, 100% 0,90% 100%,0 100%)
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.header {
+  color: black;
+  clip-path: polygon(0 0,100% 0,100% 95%,50% 100%,0 95%);
+}
+.height-max{
+  margin-top: 0.01rem;
+  min-height: 100vh - 76px;
+  background: url('../images/eclass.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  animation-name: zoom;
+  animation-duration: 20s;
+  animation-delay: 2s;
+  animation-iteration-count:infinite;
+}
+@keyframes zoom{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2) translatex(-5%);
+  }
+  100%{
+    transform: scale(1)
+  }
+}
+.title-heading{
+  background:rgba(0,0,0,0.4);
+  border-left:0.3rem solid var(--mainblue)
+}
+
+.title{
+  font-weight:700;
+  font-size: 1.9rem;
+}
+@media screen and(min-width:768px){
+  .title{
+    font-size: 3rem;
+  }
+}
+.title-icon{
+  color: rgb(75, 75, 235);
+  text-decoration:none;
+}
+
+.title-icon:hover{
+  color: grey;
+  opacity:0.6;
+}
+/*skills*/
+.skills-icon{
+  font-size: 3rem;
+  background:grey;
+  color: rgb(246, 246, 143);
+}
+

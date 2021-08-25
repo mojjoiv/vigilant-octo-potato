@@ -1,0 +1,33 @@
+.navBackground {
+    background-image: url('/images/e-class.jpg');
+    height: 55vh;
+    background-repeat: no-repeat;
+    /* align-items: center; */
+    /* position: relative; */
+    background-size: cover;
+}
+
+.textClass:hover{
+    color: grey;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .price{
+    background-color: red; 
+    color: white; 
+    -webkit-box-shadow: -4px 6px 9px -3px #000000; 
+    box-shadow: -4px 6px 9px -3px #000000;
+    border-radius: 4px;
+  }
+
+  .cardBorder {
+    border-bottom-style: solid;
+    border-bottom-color: gray;
+    border-bottom-width: 0.5px;
+  }
+
+  .transmission{
+      color: gray;
+      size: 8px;
+  }

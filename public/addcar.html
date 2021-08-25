@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Car Details</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <!--===============================================================================================-->
+</head>
+
+<body>
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form" name="" onsubmit="event.preventDefault()"
+        enctype="multipart/form-data">
+        <span class="contact100-form-title">
+          Car Details
+        </span>
+
+        <div class="mb-4">
+          <a href="/" class="btn btn-primary">Back to home page</a>
+        </div>
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR TITLE *</span>
+          <input class="input100" id="car_title" type="text" name="name" placeholder="Enter car Title"
+            autocomplete="off" />
+        </div>
+
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR LOCATION *</span>
+          <input class="input100" id="car_location" type="text" name="name" placeholder="Enter car Title"
+            autocomplete="off" />
+        </div>
+
+        <div class="wrap-input100 input100-select bg1">
+          <span class="label-input100">CAR BRAND *</span>
+          <div>
+            <select class="js-select2" name="service" id="car_brand" onchange="onBrandChange()">
+              <option value="">Please select your brand</option>
+              <!-- <option>Mercedes</option>
+                <option>BMW</option>
+                <option>Audi</option>
+                <option>Volkswagen</option>
+                <option>Alfa Romeo</option>
+                <option>Subaru</option> -->
+            </select>
+            <div class="dropDownSelect2"></div>
+          </div>
+        </div>
+        <div class="wrap-input100 input100-select bg1">
+          <span class="label-input100">CAR MODEL *</span>
+          <div>
+            <select class="js-select2" name="service" id="car_model">
+              <option value="">Please select your model</option>
+              <!-- <option>5 series</option>
+                <option>GLE Coupe</option>
+                <option>Eclass</option>
+                <option>Q8</option>
+                <option>SLS</option>
+                <option>Toureg</option>
+                <option>Giulia Quadrifolio</option>
+                <option>WRX Sti</option> -->
+            </select>
+            <div class="dropDownSelect2"></div>
+          </div>
+        </div>
+
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR YEAR *</span>
+          <input class="input100" id="car_year" type="text" name="name" autocomplete="off"
+            placeholder="Enter car Manufacture dates" />
+        </div>
+
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR Transmission *</span>
+          <input class="input100" id="car_transmission" type="text" name="name" autocomplete="off"
+            placeholder="Enter car Transmission" />
+        </div>
+
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR PRICE *</span>
+          <input class="input100" id="car_price" type="text" name="name" placeholder="Enter car Price"
+            autocomplete="off" />
+        </div>
+        <div class="wrap-input100 validate-input bg1">
+          <span class="label-input100">CAR IMAGES *</span>
+          <input id="car_images" type="file" name="file">
+        </div>
+
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" onclick="postCarDetails()">
+            <span>
+              Submit
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".js-select2").each(function () {
+      $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next(".dropDownSelect2"),
+      });
+
+      $(".js-select2").each(function () {
+        $(this).on("select2:close", function (e) {
+          if ($(this).val() == "Please chooses") {
+            $(".js-show-service").slideUp();
+          } else {
+            $(".js-show-service").slideUp();
+            $(".js-show-service").slideDown();
+          }
+        });
+      });
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/noui/nouislider.min.js"></script>
+  <script>
+    var filterBar = document.getElementById("filter-bar");
+
+    noUiSlider.create(filterBar, {
+      start: [1500, 3900],
+      connect: true,
+      range: {
+        min: 1500,
+        max: 7500,
+      },
+    });
+
+    var skipValues = [
+      document.getElementById("value-lower"),
+      document.getElementById("value-upper"),
+    ];
+
+    filterBar.noUiSlider.on("update", function (values, handle) {
+      skipValues[handle].innerHTML = Math.round(values[handle]);
+      $('.contact100-form-range-value input[name="from-value"]').val(
+        $("#value-lower").html()
+      );
+      $('.contact100-form-range-value input[name="to-value"]').val(
+        $("#value-upper").html()
+      );
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="js/main.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    let allBrands;
+    let allModels;
+    let selectedImage;
+    let selectedCarBrand;
+
+
+
+    var openFile = function (event) {
+      var input = event.target;
+
+      var reader = new FileReader();
+      reader.onload = function () {
+        var dataURL = reader.result;
+        // var output = document.getElementById('output');
+        // output.src = data.;URL;
+
+        selectedImage = dataURL;
+
+      };
+      reader.readAsDataURL(input.files[0]);
+    };
+
+    const postCarDetails = () => {
+      let carTitle = document.getElementById("car_title").value;
+      let carLocation = document.getElementById("car_location").value;
+      let carBrand = document.getElementById("car_brand").value;
+      let carModel = document.getElementById("car_model").value;
+      let carYear = document.getElementById("car_year").value;
+      let carTransmission = document.getElementById("car_transmission").value;
+      let carPrice = document.getElementById("car_price").value;
+      // let carImage = document.getElementById("car_images").value;
+
+      let formData = new FormData()
+      let imagefile = document.querySelector('#car_images')
+      console.log(imagefile);
+      formData.append('car_image', imagefile.files[0]);
+
+
+
+      const data = {
+        car_title: carTitle,
+        car_location: carLocation,
+        car_year: carYear,
+        car_transmission: carTransmission,
+        car_price: carPrice,
+        car_model_id: carModel,
+      };
+
+      formData.append('data', data)
+      console.log(formData);
+
+      // console.log(allDetails);
+      axios
+        .post(`http://localhost:5005/car`, formData)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.message);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          alert(error.response.data.error.car);
+        });
+    };
+
+    const getCarBrand = () => {
+      axios
+        .get(`http://localhost:5005/brand`)
+        .then((res) => {
+          console.log(res.data);
+          allBrands = res.data;
+          // console.log(allBrands);
+          showBrands(allBrands);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    };
+
+    const showBrands = (allBrands) => {
+      // console.log(allBrands);
+      const brands = allBrands.map(
+        (brand) =>
+          "<option value=" + brand.id + ">" + brand.brand_name + "</option>"
+      );
+
+      document.getElementById("car_brand").innerHTML = '<option value="">Select Brand</option>' + brands;
+    };
+
+    const onBrandChange = () => {
+      console.log(allModels);
+      // selectedCarBrand = document.getElementById("car_brand").value;
+      showModels(allModels)
+    }
+
+    //model
+    const getCarModel = () => {
+      axios
+        .get(`http://localhost:5005/model`)
+        .then((res) => {
+          // console.log(res.data);
+          allModels = res.data;
+          showModels(allModels);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    };
+
+    const showModels = (allModels) => {
+      selectedCarBrand = document.getElementById("car_brand").value;
+      let brand = parseInt(selectedCarBrand);
+      const models = allModels.filter(car => car.brand_id === brand).map(
+        (model) =>
+          "<option value=" + model.id + ">" + model.model_name + "</option>"
+      );
+      document.getElementById("car_model").innerHTML = '<option value="">Select Model</option>' + models;
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      getCarModel();
+      getCarBrand();
+    });
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("/js", new Date());
+
+    gtag("config", "UA-23581568-13");
+  </script>
+</body>
+
+</html>
